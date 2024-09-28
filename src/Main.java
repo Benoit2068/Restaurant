@@ -3,6 +3,8 @@
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Hello World 2");
+        Product salad = new Dish("salad", 4.50F, "starter");
+        salad.readDish();
+
     }
 }

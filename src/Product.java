@@ -1,5 +1,17 @@
 public interface Product {
 
-String getName();
+    void setType(String type);
 
+    void setName(String name);
+
+
+    void setPrice(double price);
+
+    String getName();
+
+    double getPrice();
+
+    String getType();
+
+    void readDish();
 }
