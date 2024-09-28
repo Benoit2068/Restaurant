@@ -1,4 +1,4 @@
-public class Dish {
+public class Dish implements Product {
     private String name;
     private double price;
     private String type;
@@ -18,6 +18,29 @@ public class Dish {
         }
     }
 
+    public void setName(String name){
+        this.name = name;
+    }
 
+    public void setPrice(double price){
+        this.price = price;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public double getPrice(){
+        return price;
+    }
+
+    public String type(){
+        return type;
+    }
+
+
+    public void readDish(){
+        System.out.println();
+    }
 
 }
