@@ -3,6 +3,20 @@
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Hello World 2");
+        Dish salad = new Dish("salad", 4.50d, "starter");
+        salad.setName("Salade César");
+
+        System.out.println(salad);
+        salad.displayDish();
+
+        BaseProduct coca = new Drink("Coca Cola", 3.90d, "sparkling");
+        System.out.println(coca);
+        ((Drink) coca).displayDrink();
+        System.out.println(coca);
+
+
+
+
+
     }
 }
