@@ -4,7 +4,6 @@ public interface Product {
 
     void setName(String name);
 
-
     void setPrice(double price);
 
     String getName();
@@ -12,6 +11,4 @@ public interface Product {
     double getPrice();
 
     String getType();
-
-    void readDish();
 }
