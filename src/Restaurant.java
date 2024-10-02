@@ -11,6 +11,7 @@ public class Restaurant {
         salad.displayDish();
 
         BaseProduct coca = new Drink("Coca Cola", 3.90d, "sparkling");
+
         ((Drink) coca).displayDrink();
 
 
@@ -18,6 +19,10 @@ public class Restaurant {
         menuOfTheDay.name = "Menu of the Day";
         menuOfTheDay.add(coca, salad);
         menuOfTheDay.displayMenu();
+
+        Dish burger = new DishRish("Burger", 7.85d, "main");
+        burger.displayDish();
+
 
 
 
