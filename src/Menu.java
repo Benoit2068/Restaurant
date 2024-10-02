@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class Menu extends BaseProduct {
     protected List<Product> productsInMenu = new ArrayList<>();
@@ -33,6 +34,14 @@ public class Menu extends BaseProduct {
 
     public void clear(){
         productsInMenu.clear();
+    }
+
+    public void displayMenu(){
+        System.out.println("In the menu " + name +" there are : ");
+        for (int i=0; i < productsInMenu.size(); i++){
+            System.out.println(" - " + productsInMenu.get(i).getName() + " price : " + productsInMenu.get(i).getPrice() + " CHF.");
+
+        }
     }
 
 }
