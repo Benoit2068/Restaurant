@@ -21,6 +21,7 @@ abstract class BaseProduct implements Product {
     }
     @Override
     public String getName(){
+
         return name;
     }
     @Override
