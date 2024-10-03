@@ -1,11 +1,37 @@
-public class Drink extends BaseProduct {
+public class Drink implements Product {
 
+    public String name;
+    public double price;
+    public String type;
 
     Drink (String name, double price, String type){
-        super(name, price, type);
+        this.name = name;
+        this.price = price;
+        setType(type);
     }
 
-    @Override
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public void setPrice(double price){
+        this.price = price;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public double getPrice(){
+        return price;
+    }
+
+    public String getType(){
+        return type;
+    }
+
+
     public void setType(String type){
         if (type.equalsIgnoreCase("hot") || type.equalsIgnoreCase("cold") || type.equalsIgnoreCase("sparkling") || type.equalsIgnoreCase("alcoholic")){
             this.type = type;

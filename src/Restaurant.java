@@ -10,18 +10,22 @@ public class Restaurant {
         salad.setName("Salad César");
         salad.displayDish();
 
-        BaseProduct coca = new Drink("Coca Cola", 3.90d, "sparkling");
+        Drink coca = new Drink("Coca Cola", 3.90d, "sparkling");
 
         ((Drink) coca).displayDrink();
 
 
         Menu menuOfTheDay = new Menu();
         menuOfTheDay.name = "Menu of the Day";
-        menuOfTheDay.add(coca, salad);
+        menuOfTheDay.add(coca);
+        menuOfTheDay.add(salad);
         menuOfTheDay.displayMenu();
+
 
         Dish burger = new DishRish("Burger", 7.85d, "main");
         burger.displayDish();
+
+
 
 
 

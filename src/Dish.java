@@ -1,8 +1,34 @@
-public class Dish extends BaseProduct {
+public class Dish implements Product {
+
+    public String name;
+    public double price;
+    public String type;
 
 
     Dish (String name, double price, String type){
-        super(name, price, type);
+        this.name = name;
+        this.price = price;
+        setType(type);
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public void setPrice(double price){
+        this.price = price;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public double getPrice(){
+        return price;
+    }
+
+    public String getType(){
+        return type;
     }
 
     public void setType(String type){
@@ -13,8 +39,6 @@ public class Dish extends BaseProduct {
             System.out.println("the txpe doesn't exist : Dish is not create");
         }
     }
-
-
 
     public void displayDish(){
         System.out.println("the dish is " + this.name + ", the price is " + this.price + ", the type is " + this.type +".");
