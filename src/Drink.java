@@ -1,8 +1,8 @@
 public class Drink implements Product {
 
-    public String name;
-    public double price;
-    public String type;
+    private String name;
+    private double price;
+    private String type;
 
     Drink (String name, double price, String type){
         this.name = name;
