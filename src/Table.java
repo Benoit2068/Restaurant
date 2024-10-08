@@ -56,5 +56,6 @@ public void setType(String type){
         ProductsConsumed.clear();
     }
 
+
 }
 
