@@ -1,4 +1,4 @@
-public class PleasureFactory implements ProductFactory{
+public class PleasureFactory implements AbstractFactory{
 
     @Override
     public Drink createDrink(String name, double price, String type){

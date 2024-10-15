@@ -1,4 +1,5 @@
-public interface ProductFactory {
+public interface AbstractFactory {
+
 
     Drink createDrink(String name, double price, String type);
 

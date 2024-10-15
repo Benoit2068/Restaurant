@@ -1,4 +1,4 @@
-public class DietFactory implements ProductFactory{
+public class DietFactory implements AbstractFactory{
 
 
     @Override
