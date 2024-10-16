@@ -1,48 +1,31 @@
-public class Drink implements Product {
+public abstract class Drink implements Product {
 
-    private String name;
-    private double price;
-    private String type;
+    String name;
+    double price;
+    String type;
 
     Drink (String name, double price, String type){
         this.name = name;
         this.price = price;
-        setType(type);
+        this.setType(type);
     }
 
+    public abstract void setName(String name);
 
-    public void setName(String name){
-        this.name = name;
-    }
+    public abstract void setPrice(double price);
 
-    public void setPrice(double price){
-        this.price = price;
-    }
+    public abstract String getName();
 
-    public String getName(){
-        return name;
-    }
+    public abstract double getPrice();
 
-    public double getPrice(){
-        return price;
-    }
-
-    public String getType(){
-        return type;
-    }
+    public abstract String getType();
 
 
-    public void setType(String type){
-        if (type.equalsIgnoreCase("hot") || type.equalsIgnoreCase("cold") || type.equalsIgnoreCase("sparkling") || type.equalsIgnoreCase("alcoholic")){
-            this.type = type;
-        }
-        else {
-            System.out.println("the type doesn't exist : Drink is not create");
-        }
-    }
+    public abstract void setType(String type);
 
     public void displayDrink(){
         System.out.println("the drink is " + this.name + ", the price is " + this.price + ", the type is " + this.type +".");
+        System.out.println(this.getClass());
     }
 
 }

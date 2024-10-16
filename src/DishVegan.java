@@ -1,13 +1,7 @@
-public class DishVegan implements Dish{
-    public String name;
-    public double price;
-    public String type;
-
+public class DishVegan extends Dish{
 
     DishVegan (String name, double price, String type){
-        this.name = name;
-        this.price = price;
-        setType(type);
+        super(name, price, type);
     }
 
     public void setName(String name){
@@ -39,7 +33,5 @@ public class DishVegan implements Dish{
         }
     }
 
-    public void displayDish(){
-        System.out.println("the dish is " + this.name + ", the price is " + this.price + ", the type is " + this.type +".");
-    }
+
 }

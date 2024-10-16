@@ -29,18 +29,10 @@ public class Restaurant {
 
         AbstractFactory factory = configureAbstractFactory();
 
-        factory.createDish("poulet au curry", 5.90d, "main");
-        factory.createDrink("Orange juce", 2.50d, "cold");
-
-        factory.createDrink("bière", 3.50d, "sparkling");
-
-
-
-        System.out.println(factory.createDrink("Orange juce", 2.50d, "cold"));
+        factory.createDish("poulet au curry", 5.90d, "main").displayDish();
+        factory.createDrink("Orange juce", 2.50d, "cold").displayDrink();
+        factory.createDrink("bière", 3.50d, "sparkling").displayDrink();
+        factory.createDrink("Orange juce", 2.50d, "cold").displayDrink();
 
     }
-
-
-
-
-    }
+}

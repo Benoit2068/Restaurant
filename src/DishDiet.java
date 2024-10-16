@@ -1,13 +1,7 @@
-public class DishDiet implements Dish{
-    public String name;
-    public double price;
-    public String type;
-
+public class DishDiet extends Dish {
 
     DishDiet (String name, double price, String type){
-        this.name = name;
-        this.price = price;
-        setType(type);
+        super(name, price, type);
     }
 
     public void setName(String name){
@@ -37,9 +31,5 @@ public class DishDiet implements Dish{
         else {
             System.out.println("the type doesn't exist : Dish is not create");
         }
-    }
-
-    public void displayDish(){
-        System.out.println("the dish is " + this.name + ", the price is " + this.price + ", the type is " + this.type +".");
     }
 }
