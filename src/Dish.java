@@ -1,47 +1,30 @@
-public class Dish implements Product {
-
+public abstract class Dish implements Product {
     public String name;
     public double price;
     public String type;
 
-
     Dish (String name, double price, String type){
         this.name = name;
-        this.price = price;
-        setType(type);
+        this.price= price;
+        this.setType(type);
     }
 
-    public void setName(String name){
-        this.name = name;
-    }
 
-    public void setPrice(double price){
-        this.price = price;
-    }
+    public abstract void setName(String name);
 
-    public String getName(){
-        return name;
-    }
+    public abstract void setPrice(double price);
 
-    public double getPrice(){
-        return price;
-    }
+    public abstract String getName();
 
-    public String getType(){
-        return type;
-    }
+    public abstract double getPrice();
 
-    public void setType(String type){
-        if (type.equalsIgnoreCase("starter") || type.equalsIgnoreCase("main") || type.equalsIgnoreCase("dessert")){
-            this.type = type;
-        }
-        else {
-            System.out.println("the txpe doesn't exist : Dish is not create");
-        }
-    }
+    public abstract String getType();
+
+    public abstract void setType(String type);
 
     public void displayDish(){
         System.out.println("the dish is " + this.name + ", the price is " + this.price + ", the type is " + this.type +".");
+        System.out.println(this.getClass());
     }
-
 }
+

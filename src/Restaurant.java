@@ -2,33 +2,37 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
 
+import java.util.Scanner;
+
 public class Restaurant {
+
+    private static AbstractFactory configureAbstractFactory() {
+        AbstractFactory factory;
+        System.out.println("chose your table type : pleasure, diet or vegan");
+        Scanner sc = new Scanner(System.in);
+        String tableType = sc.nextLine();
+
+        if (tableType.equalsIgnoreCase("pleasure")) {
+            factory = new PleasureFactory();
+        } else if (tableType.equalsIgnoreCase("diet")) {
+            factory= new DietFactory();
+        } else if (tableType.equalsIgnoreCase("vegan")) {
+            factory = new VeganFactory();
+        } else {
+            System.out.println("your choice doesn't exist");
+            return configureAbstractFactory();
+        }
+        return factory;
+    }
 
     public static void main(String[] args) {
 
-        Dish salad = new Dish("salad", 4.50d, "starter");
-        salad.setName("Salad César");
-        salad.displayDish();
+        AbstractFactory factory = configureAbstractFactory();
 
-        Drink coca = new Drink("Coca Cola", 3.90d, "sparkling");
-
-        ((Drink) coca).displayDrink();
-
-
-        Menu menuOfTheDay = new Menu();
-        menuOfTheDay.name = "Menu of the Day";
-        menuOfTheDay.add(coca);
-        menuOfTheDay.add(salad);
-        menuOfTheDay.displayMenu();
-
-
-        Dish burger = new DishRish("Burger", 7.85d, "main");
-        burger.displayDish();
-
-
-
-
-
+        factory.createDish("poulet au curry", 5.90d, "main").displayDish();
+        factory.createDrink("Orange juce", 2.50d, "cold").displayDrink();
+        factory.createDrink("bière", 3.50d, "sparkling").displayDrink();
+        factory.createDrink("Orange juce", 2.50d, "cold").displayDrink();
 
     }
 }

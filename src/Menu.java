@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class Menu implements Product {
+public class Menu  {
     protected List<Product> productsInMenu = new ArrayList<>();
 
     String name;
