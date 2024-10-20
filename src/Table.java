@@ -8,6 +8,7 @@ public class Table  {
     private LocalDate date;
     private String type;
     protected List<Product> productsConsumed = new ArrayList();
+    double billAmount = 0;
     Boolean closed = false;
 
 
@@ -58,9 +59,8 @@ public void setType(String type){
     }
 
     public double calculateBill(){
-    double billAmount = 0;
-    for (Product product : this.productsConsumed){
-        billAmount = (billAmount + product.getPrice());
+        for (Product product : this.productsConsumed){
+            billAmount = (billAmount + product.getPrice());
         }
         return billAmount;
     }

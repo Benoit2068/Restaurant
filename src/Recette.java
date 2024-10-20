@@ -4,7 +4,7 @@ import java.util.List;
 
 public final class Recette {
 
-    List<Table> tableList = new ArrayList();
+    public static List<Table> tableListClosed = new ArrayList();
     private static Recette instance = null;
 
     private Recette(){
@@ -17,4 +17,17 @@ public final class Recette {
         }
         return Recette.instance;
     }
+
+    public static void saveTable(Table table){
+        if (table.closed == true){
+            table.calculateBill();
+            tableListClosed.add(table);
+        }
+        else {
+            System.out.println("this table is not close : can't be add to Recette");
+        }
+    }
+
+
+
 }

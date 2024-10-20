@@ -43,6 +43,7 @@ public class Restaurant {
         table1.addProductInProductsConsumedList(Dish.findDish("Burger"));
 
         table1.printBillTable();
+        Recette.saveTable(table1);
 
         Recette recette1 = Recette.getInstance();
         Recette recette2 = Recette.getInstance();
