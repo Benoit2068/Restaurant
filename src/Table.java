@@ -1,16 +1,18 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Table  {
 
     private String client;
-    private Date date;
+    private LocalDate date;
     private String type;
-    protected List<Product> ProductsConsumed = new ArrayList<>();
+    protected List<Product> productsConsumed = new ArrayList();
+    double billAmount = 0;
+    Boolean closed = false;
 
 
-Table (String client, Date date, String type){
+Table (String client, LocalDate date, String type){
     this.client = client;
     this.date = date;
     setType(type);
@@ -20,7 +22,7 @@ public void setClient(String client){
     this.client = client;
 }
 
-public void setDate(Date date){
+public void setDate(LocalDate date){
     this.date = date;
 }
 
@@ -36,7 +38,7 @@ public void setType(String type){
         return this.client;
     }
 
-    public Date getDate(){
+    public LocalDate getDate(){
         return this.date;
     }
 
@@ -44,18 +46,31 @@ public void setType(String type){
         return this.type;
     }
 
-    public void addProductInProductsConsumedLis(Product product){
-        ProductsConsumed.add(product);
+    public void addProductInProductsConsumedList(Product product){
+        productsConsumed.add(product);
     }
 
     public void removeProductInProductsConsumedList(Product product){
-        ProductsConsumed.remove(product);
+        productsConsumed.remove(product);
     }
 
     public void clearProductInProductsConsumedList(){
-        ProductsConsumed.clear();
+        productsConsumed.clear();
     }
 
+    public double calculateBill(){
+        for (Product product : this.productsConsumed){
+            billAmount = (billAmount + product.getPrice());
+        }
+        return billAmount;
+    }
 
+    public void printBillTable(){
+        System.out.println("Poducts list : ");
+        for (Product product : this.productsConsumed){
+            System.out.println(product.getName() +" Price : " + product.getPrice() + " CHF");
+        }
+        System.out.println("total Amount = " + this.calculateBill());
+    }
 }
 

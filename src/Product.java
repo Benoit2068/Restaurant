@@ -1,5 +1,6 @@
-public interface Product {
 
+
+public interface Product {
 
     String getName();
 
