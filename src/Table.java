@@ -10,12 +10,14 @@ public class Table  {
     protected List<Product> productsConsumed = new ArrayList();
     double billAmount = 0;
     Boolean closed = false;
+    private TableState tableState;
 
 
 Table (String client, LocalDate date, String type){
     this.client = client;
     this.date = date;
     setType(type);
+    this.tableState = new TableReserved(this);
 }
 
 public void setClient(String client){
@@ -46,6 +48,14 @@ public void setType(String type){
         return this.type;
     }
 
+    public void changeTableState (TableState tableState){
+        this.tableState = tableState;
+    }
+
+    public TableState getTableState(){
+        return this.tableState;
+    }
+
     public void addProductInProductsConsumedList(Product product){
         productsConsumed.add(product);
     }
@@ -72,5 +82,23 @@ public void setType(String type){
         }
         System.out.println("total Amount = " + this.calculateBill());
     }
+
+    public void welcomeClient(){
+        tableState.welcomeClient(this);
+    }
+
+    public void serveProduct(){
+        tableState.serveProduct(this);
+    }
+
+    public void closedTable(){
+        tableState.closeTable(this);
+    }
+
+    public void displayTable(){
+        tableState.displayTable(this);
+    }
+
+
 }
 

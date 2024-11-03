@@ -5,7 +5,6 @@ import java.util.Objects;
 
 public class Menu  {
     protected List<Product> productsInMenu = new ArrayList<>();
-
     String name;
 
     public void setName(String name){
