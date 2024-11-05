@@ -2,6 +2,7 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
 import javax.swing.text.StyledEditorKit;
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -19,6 +20,14 @@ public class Restaurant {
         factory.createDrink("CocaCola", 3.50d, "cold").displayDrink();
         factory.createDish("Burger", 6.80d, "main");
         factory.createDish("César Salad", 3.90d, "starter");
+
+
+        Menu menuChicken = new Menu();
+        menuChicken.add(Dish.findDish("poulet au curry"));
+        menuChicken.add(Drink.findDrink("CocaCola"));
+        menuChicken.setName("Chicken Menu");
+
+
 
         Table table1 = new Table("Robert", LocalDate.of(2024, 10, 19), "pleasure");
 
@@ -53,6 +62,27 @@ public class Restaurant {
         table1.welcomeClient();
         table1.closedTable();
         table1.displayTable();
+
+        //Labo 3 task 1 test
+
+        Product chicken = Dish.findDish("poulet au curry");
+        System.out.println(chicken.getPrice());
+
+        ProductDecorator chickenExtraDose = new ExtraDoseDecorator(chicken);
+        System.out.println(chickenExtraDose.getPrice());
+
+        ProductDecorator chickenExtraDoseExtraTaste = new ExtraTasteDecorator(chickenExtraDose);
+        System.out.println(chickenExtraDoseExtraTaste.getPrice());
+
+
+        Menu chickenCoca = new Menu();
+        chickenCoca.add(Dish.findDish("poulet au curry"));
+        chickenCoca.add(Drink.findDrink("CocaCola"));
+
+        System.out.println(chickenCoca.getPrice());
+        ProductDecorator chickenCocaExtraDose = new MenuExtraDoseDecorator(chickenCoca);
+        System.out.println(chickenCocaExtraDose.getPrice());
+
 
 
     }

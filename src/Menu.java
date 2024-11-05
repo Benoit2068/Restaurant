@@ -40,7 +40,7 @@ public class Menu  {
         for (int i = 0; i < productsInMenu.size(); i++) {
             price = price + productsInMenu.get(i).getPrice();
         }
-        price = Math.round(price*.80d);
+        //price = Math.round(price*.80d);
         return price;
     }
 
