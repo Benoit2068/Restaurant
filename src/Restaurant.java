@@ -80,8 +80,21 @@ public class Restaurant {
         chickenCoca.add(Drink.findDrink("CocaCola"));
 
         System.out.println(chickenCoca.getPrice());
-        ProductDecorator chickenCocaExtraDose = new MenuExtraDoseDecorator(chickenCoca);
+        ProductDecorator chickenCocaExtraDose = new ExtraDoseDecorator(chickenCoca);
         System.out.println(chickenCocaExtraDose.getPrice());
+
+
+        //labo3 tesk 1 test
+        System.out.println("Labo 3 tesk 1 test");
+
+        DishVegan greenSalad = new DishVegan("salade verte", 3.4d, "starter");
+
+        MenuBuilder veganMenuBuilder = new MenuVeganBuilder();
+        DirectorNormalMenu directorNormalMenuVegan = new DirectorNormalMenu(veganMenuBuilder);
+
+        Menu MenuNormalVegan = directorNormalMenuVegan.construcMenu(greenSalad);
+
+        MenuNormalVegan.displayMenu();
 
 
 

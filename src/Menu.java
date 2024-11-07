@@ -3,9 +3,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class Menu  {
+public class Menu implements Product {
+
     protected List<Product> productsInMenu = new ArrayList<>();
     String name;
+    String type;
 
     public void setName(String name){
         this.name = name;
@@ -44,6 +46,10 @@ public class Menu  {
         return price;
     }
 
+    @Override
+    public String getType() {
+        return this.getType();
+    }
 
 
 }
