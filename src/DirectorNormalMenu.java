@@ -6,8 +6,8 @@ public class DirectorNormalMenu {
             this.menuBuilder = menuBuilder;
     }
 
-    public Menu construcMenu(Dish dish1) {
-        menuBuilder.buildStarter(dish1);
+    public Menu construcMenu() {
+        menuBuilder.buildStarter();
         menuBuilder.buildMain();
         menuBuilder.buildDessert1();
         menuBuilder.buildDrink1();

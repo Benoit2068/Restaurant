@@ -1,6 +1,6 @@
 public interface MenuBuilder {
 
-    void buildStarter(Dish dish);
+    void buildStarter();
     void buildMain();
     void buildDessert1();
     void buildDessert2();

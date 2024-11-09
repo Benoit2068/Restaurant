@@ -84,17 +84,21 @@ public class Restaurant {
         System.out.println(chickenCocaExtraDose.getPrice());
 
 
-        //labo3 tesk 1 test
-        System.out.println("Labo 3 tesk 1 test");
-
-        DishVegan greenSalad = new DishVegan("salade verte", 3.4d, "starter");
+        //labo3 task 1 test
+        System.out.println("Labo 3 task 1 test");
 
         MenuBuilder veganMenuBuilder = new MenuVeganBuilder();
         DirectorNormalMenu directorNormalMenuVegan = new DirectorNormalMenu(veganMenuBuilder);
+        Menu menuNormalVegan = directorNormalMenuVegan.construcMenu();
+        menuNormalVegan.setName("Menu Vegan Normal");
+        menuNormalVegan.displayMenu();
 
-        Menu MenuNormalVegan = directorNormalMenuVegan.construcMenu(greenSalad);
+        MenuBuilder pleasureMenuBuilder = new MenuPleasurBuilder();
+        DirectorGenerousMenu directorGenerousMenuPleasure = new DirectorGenerousMenu(pleasureMenuBuilder);
+        Menu menuGenerousPleasure = directorGenerousMenuPleasure.construcMenu();
+        menuGenerousPleasure.setName("Menu Plaisir Généreux");
+        menuGenerousPleasure.displayMenu();
 
-        MenuNormalVegan.displayMenu();
 
 
 

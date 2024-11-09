@@ -9,9 +9,9 @@ public class MenuVeganBuilder implements MenuBuilder {
 
 
     @Override
-    public void buildStarter(Dish dish) {
-        //DishVegan greenSalad = new DishVegan("salade verte", 3.4d, "vegan");
-        menu.add(dish);
+    public void buildStarter() {
+        DishVegan greenSalad = new DishVegan("salade verte", 3.4d, "vegan");
+        menu.add(greenSalad);
     }
 
     @Override
