@@ -80,7 +80,7 @@ public void setType(String type){
         for (Product product : this.productsConsumed){
             System.out.println(product.getName() +" Price : " + product.getPrice() + " CHF");
         }
-        System.out.println("total Amount = " + this.calculateBill());
+        System.out.println("Amount = " + this.calculateBill());
     }
 
     public void welcomeClient(){

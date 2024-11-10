@@ -31,7 +31,7 @@ public class Restaurant {
 
         Table table1 = new Table("Robert", LocalDate.of(2024, 10, 19), "pleasure");
 
-        
+
 
         table1.addProductInProductsConsumedList(Dish.findDish("poulet au curry"));
         table1.addProductInProductsConsumedList(Drink.findDrink("Orange juce"));
@@ -63,7 +63,7 @@ public class Restaurant {
         table1.closedTable();
         table1.displayTable();
 
-        //Labo 3 task 1 test
+        //Labo 3 task1
 
         Product chicken = Dish.findDish("poulet au curry");
         System.out.println(chicken.getPrice());
@@ -84,8 +84,8 @@ public class Restaurant {
         System.out.println(chickenCocaExtraDose.getPrice());
 
 
-        //labo3 task 1 test
-        System.out.println("Labo 3 task 1 test");
+        //labo3 task2
+        System.out.println("=================Labo-3 task-2==========================");
 
         MenuBuilder veganMenuBuilder = new MenuVeganBuilder();
         DirectorNormalMenu directorNormalMenuVegan = new DirectorNormalMenu(veganMenuBuilder);
@@ -99,7 +99,17 @@ public class Restaurant {
         menuGenerousPleasure.setName("Menu Plaisir Généreux");
         menuGenerousPleasure.displayMenu();
 
+        //Labo4 task1
+        System.out.println("=================Labo-4 task-1==========================");
 
+        table1.displayTable();
+        TaxeTablePrivate taxeTablePrivate = new TaxeTablePrivate(table1);
+        taxeTablePrivate.taxeTableCalculate();
+        taxeTablePrivate.displayTaxe();
+
+        TaxeTableCompany taxeTableCompany = new TaxeTableCompany(table1);
+        taxeTableCompany.taxeTableCalculate();
+        taxeTableCompany.displayTaxe();
 
 
     }
