@@ -4,6 +4,7 @@
 import javax.swing.text.StyledEditorKit;
 import java.sql.SQLOutput;
 import java.time.LocalDate;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Restaurant {
@@ -126,6 +127,21 @@ public class Restaurant {
         recette1.displayRecette();
 
         System.out.println("=================Labo-5 task-1==========================");
+
+        Iterator<Table> iteratorAmount = recette1.getIteratorRecetteAmountMoreThan(50);
+        System.out.println("Table with amount > 50");
+        while (iteratorAmount.hasNext()) {
+            Table table = iteratorAmount.next();
+            System.out.println("- client = " + table.getClient() + " Amount = " + table.billAmount);
+        }
+
+        Iterator<Table> iteratorMonth = recette1.getIteratorRecetteByMonth(12);
+        System.out.println("Table with mont = 12");
+        while (iteratorMonth.hasNext()) {
+            Table table= iteratorMonth.next();
+            System.out.println(("- client = " + table.getClient() + " Month = " + table.getDate().getMonth()));
+
+        }
 
 
     }
