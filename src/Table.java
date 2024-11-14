@@ -9,9 +9,11 @@ public class Table  {
     private String type;
     protected List<Product> productsConsumed = new ArrayList();
     double billAmount = 0;
-    Boolean closed = false;
     private TableState tableState;
+    private List<Observator> observators = new ArrayList<>();
 
+    Table(){
+    }
 
 Table (String client, LocalDate date, String type){
     this.client = client;
@@ -98,6 +100,24 @@ public void setType(String type){
     public void displayTable(){
         tableState.displayTable(this);
     }
+
+    public void addObservator(Observator observator){
+        observators.add(observator);
+    }
+
+    public void removeObsevator(Observator observator){
+        observators.remove(observator);
+    }
+
+    public void notifyObservator(){
+        for(Observator observator : observators){
+            observator.update(this);
+        }
+    }
+
+    public void closed(){
+        notifyObservator();
+}
 
 
 }

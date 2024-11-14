@@ -1,8 +1,9 @@
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public final class Recette {
+public class Recette implements Observator{
 
     public static List<Table> tableListClosed = new ArrayList();
     private static Recette instance = null;
@@ -19,8 +20,8 @@ public final class Recette {
     }
 
     public static void saveTable(Table table){
-        if (table.closed == true){
-            table.calculateBill();
+        if (table.getTableState() instanceof TableClosed){
+                table.calculateBill();
             tableListClosed.add(table);
         }
         else {
@@ -28,8 +29,24 @@ public final class Recette {
         }
     }
 
+    public void displayRecette(){
+        double totalRecette = 0;
+        for (Table table : tableListClosed){
+            table.displayTable();
+            totalRecette = totalRecette + table.billAmount;
+        }
+        System.out.println("total recette = " + totalRecette );
+    }
 
 
+    @Override
+    public void update(Table table) {
+        table.changeTableState(new TableClosed(table));
+        tableListClosed.add(table);
+    }
 
 
+    public Iterator<Table> getIteratorRecetteAmountMoreThan (double amount){
+        return new IteratorRecetteAmountMoreThan(this.tableListClosed, amount);
+    }
 }
