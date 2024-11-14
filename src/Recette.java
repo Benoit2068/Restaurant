@@ -49,4 +49,8 @@ public class Recette implements Observator{
     public Iterator<Table> getIteratorRecetteAmountMoreThan (double amount){
         return new IteratorRecetteAmountMoreThan(this.tableListClosed, amount);
     }
+
+    public Iterator<Table> getIteratorRecetteByMonth (int month){
+        return new IteratorRecetteByMonth(this.tableListClosed, month);
+    }
 }
