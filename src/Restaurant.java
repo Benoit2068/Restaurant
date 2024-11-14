@@ -111,6 +111,22 @@ public class Restaurant {
         taxeTableCompany.taxeTableCalculate();
         taxeTableCompany.displayTaxe();
 
+        System.out.println("=================Labo-4 task-2==========================");
+
+        Table table2 = new Table("toto", LocalDate.of(2024, 12, 31),"vegan");
+        table2.welcomeClient();
+        table2.addProductInProductsConsumedList(Drink.findDrink("CocaCola"));
+        table2.addProductInProductsConsumedList(Dish.findDish("Burger"));
+        table2.serveProduct();
+
+        table1.addObservator(recette1);
+        table1.closed();
+        table2.addObservator(recette1);
+        table2.closed();
+        recette1.displayRecette();
+
+        System.out.println("=================Labo-5 task-1==========================");
+
 
     }
 }
