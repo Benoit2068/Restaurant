@@ -45,13 +45,13 @@ public abstract class Dish implements Product {
         return null;
     }
 
-    public void exportDish() {
-        try (FileWriter writer = new FileWriter("dish.csv")) {
-            writer.append(getName()).append(",").append(getType()).append(",").append(Double.toString(getPrice()));
-            writer.append("\n");
-        } catch (IOException e) {
-            System.err.println("Erreur lors de l'exportation de la boisson : " + e.getMessage());
-        }
+    public String exportDish() {
+        return name + "," + type + "," + price;
+    }
+
+    @Override
+    public String accept(Visitor visitor) {
+        return visitor.visit(this);
     }
 }
 

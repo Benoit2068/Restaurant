@@ -6,4 +6,6 @@ public interface Product {
     double getPrice();
     String getType();
 
+    public abstract String accept(Visitor visitor);
+
 }

@@ -1,6 +1,6 @@
 public interface Visitor {
 
-    void visitDish(Dish dish);
-    void visitDrink(Drink drink);
-    void visitMenu(Menu menu);
+    String visit(Dish dish);
+    String visit(Drink drink);
+    String visit(Menu menu);
 }

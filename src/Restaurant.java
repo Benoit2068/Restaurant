@@ -2,9 +2,13 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
 import javax.swing.text.StyledEditorKit;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 public class Restaurant {
@@ -148,6 +152,28 @@ public class Restaurant {
         Drink.findDrink("CocaCola").exportDrink();
         Dish.findDish("Burger").exportDish();
         menuChicken.exportMenu();
+
+        class ExportCSV{
+            public static void exporterProduitsCSV(String cheminFichier) throws IOException {
+                ProductList productList = ProductList.getInstance();
+                List<Product> products = productList.getProducts();
+                Visitor visitor = new EsportCsvVisitor();
+
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter(cheminFichier))) {
+                    for (Product product : products) {
+                        writer.write(product.accept(visitor));
+                        writer.newLine();
+                    }
+                }
+            }
+        }
+
+        try {
+            ExportCSV.exporterProduitsCSV("C:\\Projet JAVA\\Restaurant");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 }

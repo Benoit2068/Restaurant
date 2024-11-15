@@ -59,12 +59,12 @@ public class Menu implements Product {
         return this.getType();
     }
 
-    public void exportMenu() {
-        try (FileWriter writer = new FileWriter("menu.csv")) {
-            writer.append(getName()).append(",").append(Double.toString(getPrice()));
-            writer.append("\n");
-        } catch (IOException e) {
-            System.err.println("Erreur lors de l'exportation de la boisson : " + e.getMessage());
-        }
+    public String exportMenu(){
+        return name + "," + price;
+    }
+
+    @Override
+    public String accept(Visitor visitor) {
+        return visitor.visit(this);
     }
 }

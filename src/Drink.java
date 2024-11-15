@@ -46,13 +46,13 @@ public abstract class Drink implements Product {
     }
 
 
-    public void exportDrink() {
-        try (FileWriter writer = new FileWriter("drink.csv")) {
-            writer.append(getName()).append(",").append(getType()).append(",").append(Double.toString(getPrice()));
-            writer.append("\n");
-        } catch (IOException e) {
-            System.err.println("Erreur lors de l'exportation de la boisson : " + e.getMessage());
-        }
+    public String exportDrink() {
+        return name + "," + type + ",";
+    }
+
+    @Override
+    public String accept(Visitor visitor) {
+        return visitor.visit(this);
     }
 
 
