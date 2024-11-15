@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +15,7 @@ public abstract class Drink implements Product {
         this.price = price;
         this.setType(type);
         drinks.add(this);
+        ProductList.getInstance().addProduct(this);
     }
 
     public abstract void setName(String name);
@@ -42,6 +45,15 @@ public abstract class Drink implements Product {
         return null;
     }
 
+
+    public void exportDrink() {
+        try (FileWriter writer = new FileWriter("drink.csv")) {
+            writer.append(getName()).append(",").append(getType()).append(",").append(Double.toString(getPrice()));
+            writer.append("\n");
+        } catch (IOException e) {
+            System.err.println("Erreur lors de l'exportation de la boisson : " + e.getMessage());
+        }
+    }
 
 
 }

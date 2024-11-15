@@ -142,6 +142,10 @@ public class Restaurant {
             System.out.println(("- client = " + table.getClient() + " Month = " + table.getDate().getMonth()));
 
         }
+        System.out.println("=================Labo-5 task-2==========================");
+
+        System.out.println(ProductList.productList);
+        Drink.findDrink("CocaCola").exportDrink();
 
 
     }

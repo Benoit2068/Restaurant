@@ -9,6 +9,10 @@ public class Menu implements Product {
     String name;
     String type;
 
+    Menu(){
+        ProductList.getInstance().addProduct(this);
+    }
+
     public void setName(String name){
         this.name = name;
     }

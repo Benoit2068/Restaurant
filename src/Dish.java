@@ -13,6 +13,7 @@ public abstract class Dish implements Product {
         this.price= price;
         this.setType(type);
         dishes.add(this);
+        ProductList.getInstance().addProduct(this);
     }
 
     public abstract void setName(String name);
