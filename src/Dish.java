@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +43,15 @@ public abstract class Dish implements Product {
         }
         System.out.println("we don't find this Dishe");
         return null;
+    }
+
+    public void exportDish() {
+        try (FileWriter writer = new FileWriter("dish.csv")) {
+            writer.append(getName()).append(",").append(getType()).append(",").append(Double.toString(getPrice()));
+            writer.append("\n");
+        } catch (IOException e) {
+            System.err.println("Erreur lors de l'exportation de la boisson : " + e.getMessage());
+        }
     }
 }
 

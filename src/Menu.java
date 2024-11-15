@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -7,7 +9,8 @@ public class Menu implements Product {
 
     protected List<Product> productsInMenu = new ArrayList<>();
     String name;
-    String type;
+    //String type;
+    double price;
 
     Menu(){
         ProductList.getInstance().addProduct(this);
@@ -47,6 +50,7 @@ public class Menu implements Product {
             price = price + productsInMenu.get(i).getPrice();
         }
         //price = Math.round(price*.80d);
+        this.price = price;
         return price;
     }
 
@@ -55,5 +59,12 @@ public class Menu implements Product {
         return this.getType();
     }
 
-
+    public void exportMenu() {
+        try (FileWriter writer = new FileWriter("menu.csv")) {
+            writer.append(getName()).append(",").append(Double.toString(getPrice()));
+            writer.append("\n");
+        } catch (IOException e) {
+            System.err.println("Erreur lors de l'exportation de la boisson : " + e.getMessage());
+        }
+    }
 }

@@ -146,7 +146,8 @@ public class Restaurant {
 
         System.out.println(ProductList.productList);
         Drink.findDrink("CocaCola").exportDrink();
-
+        Dish.findDish("Burger").exportDish();
+        menuChicken.exportMenu();
 
     }
 }
