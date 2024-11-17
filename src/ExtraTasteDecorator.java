@@ -8,4 +8,9 @@ public class ExtraTasteDecorator extends ProductDecorator{
     public double getPrice() {
         return product.getPrice()*1.10d;
     }
+
+    @Override
+    public String accept(Visitor visitor) {
+        return "";
+    }
 }

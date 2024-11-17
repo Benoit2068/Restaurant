@@ -1,15 +1,12 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
-import javax.swing.text.StyledEditorKit;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Scanner;
 
 public class Restaurant {
 
@@ -140,40 +137,26 @@ public class Restaurant {
         }
 
         Iterator<Table> iteratorMonth = recette1.getIteratorRecetteByMonth(12);
-        System.out.println("Table with mont = 12");
+        System.out.println("Table with Month = DECEMBER");
         while (iteratorMonth.hasNext()) {
             Table table= iteratorMonth.next();
             System.out.println(("- client = " + table.getClient() + " Month = " + table.getDate().getMonth()));
 
         }
         System.out.println("=================Labo-5 task-2==========================");
-
-        System.out.println(ProductList.productList);
-        Drink.findDrink("CocaCola").exportDrink();
-        Dish.findDish("Burger").exportDish();
-        menuChicken.exportMenu();
-
-        class ExportCSV{
-            public static void exporterProduitsCSV(String cheminFichier) throws IOException {
-                ProductList productList = ProductList.getInstance();
-                List<Product> products = productList.getProducts();
-                Visitor visitor = new EsportCsvVisitor();
-
-                try (BufferedWriter writer = new BufferedWriter(new FileWriter(cheminFichier))) {
-                    for (Product product : products) {
-                        writer.write(product.accept(visitor));
-                        writer.newLine();
-                    }
-                }
-            }
-        }
+        //Class singleton : ProductList
+        //Méthodes  String export...() et String accept(Visitor visitor) dans Dish, Drink, et Menu
+        //Interface Visitor
+        //Class ExportCsvVisitor implements Visitor
+        //Class ExportCsv avec itérateur
+        // Problème : ajout de méthode String accept(Visitor visitor) dans ExtraTasteDecorator et ExtraDoseDecorator
 
         try {
-            ExportCSV.exporterProduitsCSV("C:\\Projet JAVA\\Restaurant");
+            ExportCsv.exporterProductsListCSV("C:\\Projet JAVA\\Restaurant\\list.csv");
+            System.out.println("Success CSV Export : C:\\Projet JAVA\\Restaurant\\list.csv");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
 
     }
 }

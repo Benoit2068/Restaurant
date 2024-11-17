@@ -47,7 +47,7 @@ public abstract class Drink implements Product {
 
 
     public String exportDrink() {
-        return name + "," + type + ",";
+        return name + "," + type + "," + price;
     }
 
     @Override

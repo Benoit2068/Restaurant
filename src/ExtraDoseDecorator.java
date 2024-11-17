@@ -8,5 +8,10 @@ public class ExtraDoseDecorator extends ProductDecorator {
         return product.getPrice()*1.15d;
     }
 
+    @Override
+    public String accept(Visitor visitor) {
+        return "";
+    }
+
 
 }

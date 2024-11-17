@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.PrimitiveIterator;
 
 public class ProductList {
     public static List<Product> productList = new ArrayList<>();
